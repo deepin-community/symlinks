@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+export CPPFLAGS := $(shell dpkg-buildflags --get CPPFLAGS) -D_GNU_SOURCE
+export CFLAGS := $(shell dpkg-buildflags --get CFLAGS) -Wall -Wstrict-prototypes
+export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
+
+override_dh_auto_install:
+
+%:
+	dh $@

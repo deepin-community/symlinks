@@ -1,0 +1,5 @@
+Makefile.diff
+manpage.diff
+largefile.diff
+get_current_dir_name.diff
+fix_symlink_to_root_dotdot

@@ -1,0 +1,13 @@
+Index: symlinks/symlinks.c
+===================================================================
+--- symlinks.orig/symlinks.c
++++ symlinks/symlinks.c
+@@ -90,7 +90,7 @@ static int tidy_path (char *path)
+ 
+ 	while ((p = strstr(path,"/../")) != NULL) {
+ 		s = p+3;
+-		for (p--; p != path; p--) if (*p == '/') break;
++		for (p--; p > path; p--) if (*p == '/') break;
+ 		if (*p != '/')
+ 			break;
+ 		while ((*p++ = *s++));

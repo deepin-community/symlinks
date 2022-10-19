@@ -1,0 +1,154 @@
+symlinks (1.4-4) unstable; urgency=medium
+
+  [ Gunnar Wolf ]
+  * Fixed segfault when analyzing symlink to /.. - Thanks to Bernhard
+    Übelacker for the fix! (Closes: #951468)
+  * The segfault fix also fixed a much older bug! So, I'm happy to say,
+    (Closes: 716367) Kudos to Bernhard!
+  * debhelper compat bumped up to 12
+  * Bumped up standards-version to 4.5.0
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+
+ -- Gunnar Wolf <gwolf@debian.org>  Fri, 21 Feb 2020 17:55:08 -0600
+
+symlinks (1.4-3) unstable; urgency=medium
+
+  * New maintainer (closes: #760507)
+  * Move Git repo to collab-maint
+  * Standards-version 3.9.5 → 3.9.6 (no changes needed)
+  * Use an "Old Changelog" marker in the changelog instead of a Lintian
+    override
+
+ -- Gunnar Wolf <gwolf@debian.org>  Wed, 22 Oct 2014 12:30:00 -0500
+
+symlinks (1.4-2) unstable; urgency=medium
+
+  * QA upload.
+  * Set maintainer to qa group. (Addresses: #760507)
+  * Mark symlinks as Multi-Arch: foreign. (Closes: #745047)
+  * Verified compliance with Debian policy version 3.9.5.
+
+ -- Helmut Grohne <helmut@subdivi.de>  Fri, 05 Sep 2014 12:45:42 +0200
+
+symlinks (1.4-1) unstable; urgency=low
+
+  * New upstream release after 13 years of inactivity.
+    - New option -o to fix links on other filesystems while recursing.
+  * Fix possible heap corruption introduced in 1.2-6 (Closes: #573074).
+  * Add a real debian/watch file instead of an empty dummy one.
+  * Update debian/copyright.
+  * Convert to format 3.0 (quilt).
+    - Drop quilt build-dependency and patch logic from debian/rules.
+    - Remove debian/README.source.
+  * Split debian/patches/symlinks.c.diff into two patches largefile.diff
+    and get_current_dir_name.diff.
+  * Only use get_current_dir_name() if we are building with (e)glibc.
+  * Minimize debian/patches/Makefile.diff.
+  * Convert headers of the Debian patches to DEP-3 format.
+  * Use dpkg-buildflags to set compiler flags.
+  * Update debhelper compatibility level to 8.
+  * Bump Standards-Version to 3.9.2, no changes needed.
+
+ -- Sven Joachim <svenjoac@gmx.de>  Wed, 30 Nov 2011 18:32:15 +0100
+
+symlinks (1.2-6) unstable; urgency=low
+
+  * Use get_current_dir_name() instead of getcwd() to ensure correct
+    shortening if the path “symlinks” operates on contains itself a
+    symlink (Closes: #61140).  Thanks to Michael Schuerig.
+  * Use quilt as a patch system, add debian/README.source as
+    recommended by Policy §4.14.
+  * Build with dh to minimize debian/rules.
+  * Bump Standards-Version to 3.8.3, no further changes needed.
+  * Add Vcs-Browser and Vcs-Git fields to debian/control.
+
+ -- Sven Joachim <svenjoac@gmx.de>  Fri, 18 Sep 2009 12:51:27 +0200
+
+symlinks (1.2-5) unstable; urgency=low
+
+  * New maintainer (Closes: #486001).
+  * Acknowledge NMUs (Closes: #108542, #167122, #176341).
+  * Don't strip binary in build target (Closes: #438080).
+  * Patch from Fedora to shorten symlinks that are converted from
+    absolute to relative (Closes: #78600, #153496, #368941).
+  * Honor DEB_BUILD_OPTIONS=noopt in CFLAGS.
+  * #include <stdlib.h> in symlinks.c to fix GCC warnings.
+  * Document all options in the help text.
+  * Add lintian override for unfinalized ancient changelog entry.
+  * Bump debhelper compatibility level to 7.
+  * Change section to utils to match override file.
+  * Update debian/copyright.
+  * Bump Standards-Version to 3.8.0, no further changes needed.
+
+ -- Sven Joachim <svenjoac@gmx.de>  Tue, 12 Aug 2008 15:44:26 +0200
+
+symlinks (1.2-4.2) unstable; urgency=low
+
+  * NMU
+  * Add license clarification from Mark Lord to copyright file.
+    Thanks Mark for your email. Closes: #273338
+  * This upload will trigger a rebuild with current gcc, thus it
+    Closes: #176341.
+
+ -- Bill Allombert <ballombe@debian.org>  Tue, 10 May 2005 19:31:02 +0200
+
+symlinks (1.2-4.1) unstable; urgency=low
+
+  * NMU
+  * Add Build-Depends.  Closes: #108542.
+  * Apply patch for large files.  Closes: #167122.
+
+ -- Daniel Schepler <schepler@debian.org>  Sun,  6 Apr 2003 17:20:34 -0700
+
+symlinks (1.2-4) unstable; urgency=low
+
+  * typo fix in changelog from Goswin Brederlow
+  * fixed return type of Main. Closes: #69267
+
+ -- Bernd Eckenfels <ecki@debian.org>  Mon, 11 Dec 2000 10:29:58 +0100
+
+symlinks (1.2-3) unstable; urgency=low
+
+  * new standards version (including /usr/share/doc and man support)
+
+ -- Bernd Eckenfels <ecki@debian.org>  Sun, 23 Jul 2000 04:49:13 +0200
+
+symlinks (1.2-2) unstable; urgency=low
+
+  * included debhelper
+
+ -- Bernd Eckenfels <ecki@debian.org>  Mon,  2 Nov 1998 00:32:03 +0100
+
+symlinks (1.2-1) unstable; urgency=low
+
+  * new upstream version (lengthy links and test option)
+  * included deb-std drom debmake packge for building package
+
+ -- Bernd Eckenfels <ecki@debian.org>  Mon, 4 Nov 1996 22:36:13 +0100
+
+symlinks (1.0-5) unstable; urgency=low
+
+  * Strip Binarie (#5108)
+
+ -- Bernd Eckenfels <ecki@debian.org>  Wed, 30 Oct 1996 02:52:16 +0100
+
+symlinks (1.0-4) unstable; urgency=low
+
+  * Updated to Standards-Version 2.1.1.0.
+  * New maintainer. (old: Michael Meskes <meskes@debian.org>)
+
+ -- Bernd Eckenfels <ecki@debian.org>  Thu, 26 Sep 1996 19:11:06 +0200
+
+Old Changelog:
+
+symlinks (1.0-3) unstable; urgency=LOW
+
+  * New maintainer. (old: Bill Mitchell <mitchell@mdd.comm.mot.com>)
+  * Made package architecture independent (Bug#3364)
+  * Added 'Priority: optional' to control file
+  * Recompiled for ELF (Bug#4144)
+  * Corrected extended description (Bug#3614)
+  * Manpage now gzipped
+  * Binary is now dynamically linked

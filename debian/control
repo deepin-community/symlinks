@@ -1,0 +1,20 @@
+Source: symlinks
+Section: utils
+Priority: optional
+Maintainer: Gunnar Wolf <gwolf@debian.org>
+Build-Depends: debhelper-compat (= 12), dpkg-dev (>= 1.15.7)
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/debian/symlinks
+Vcs-Git: https://salsa.debian.org/debian/symlinks.git
+
+Package: symlinks
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: foreign
+Description: scan/change symbolic links
+ Symlinks scans directories for symbolic links and lists
+ them on stdout. Each link is prefixed with a classification
+ of relative, absolute, dangling, messy, lengthy or other_fs.
+ .
+ Symlinks can also convert absolute links (within the same filesystem)
+ to relative links and can delete messy and dangling links.
